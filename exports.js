@@ -6,13 +6,16 @@ import PostCategory from './post_categories/index'
 import { postCategoryReducer } from './post_categories/duck'
 import Banner from './banners/index'
 import { bannerReducer } from './banners/duck'
+import Post from './posts/index'
+import { postReducer } from './posts/duck'
 
 // Reducers do projeto
 export const reducers = {
     menu: menuReducer,
     postCategory: postCategoryReducer,
     menuPostCategory: menuPostCategoryReducer,
-    banner: bannerReducer
+    banner: bannerReducer,
+    post: postReducer
 }
 
 // Rotas do projeto
@@ -21,6 +24,7 @@ export const routes = [
     { exact: true, path: '/menus', component: Menu },
     { exact: true, path: '/post_categories', component: PostCategory },
     { exact: true, path: '/banners', component: Banner },
+    { exact: true, path: '/posts', component: Post },
 ]
 
 // Menu do projeto
@@ -29,6 +33,7 @@ export const menu = {
     '/menus': { title: 'Menu', icon: 'book' },
     '/post_categories': { title: 'Categorias de posts', icon: 'book' },
     '/banners': { title: 'Banners', icon: 'book' },
+    '/posts': { title: 'Posts', icon: 'book' },
     // 'profiles': {
     //     title: 'Perfis', icon: 'users',
         //Exemplo de menu cascateado

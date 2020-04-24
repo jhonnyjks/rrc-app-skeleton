@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { reduxForm, Field, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import axios from 'axios'
-import { toastr } from 'react-redux-toastr'
 
 import Row from '../../common/layout/row'
 import LabelAndInput from '../../common/form/LabelAndInput'
@@ -19,7 +17,6 @@ class Form extends Component {
         }
 
         this.onSubmit = this.onSubmit.bind(this)
-        // this.create = this.create.bind(this)
         this.onChangeHandler = this.onChangeHandler.bind(this)
         this.getBase64 = this.getBase64.bind(this)
     }
@@ -44,7 +41,6 @@ class Form extends Component {
 
     onSubmit(item) {
         item.img = this.state.file
-        console.log(item)
         this.props.onSubmit(item)
     }
 
@@ -89,7 +85,6 @@ Form = reduxForm({ form: 'bannerForm', destroyOnUnmount: false })(Form)
 const selector = formValueSelector('bannerForm')
 const mapStateToProps = state => ({
     title: selector(state, 'title'),
-    img: selector(state, 'img'),
     link: selector(state, 'link'),
     post_id: selector(state, 'post_id'),
     errors: state.banner.errors
